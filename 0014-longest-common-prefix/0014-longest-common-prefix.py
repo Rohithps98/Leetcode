@@ -4,7 +4,7 @@ class Solution:
         for i in strs:
             if len(i)<a:
                 a = len(i)
-        i = 0
+        i= 0
         while i<a:
             for j in strs:
                 if j[i]!=strs[0][i]:
