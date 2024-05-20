@@ -6,7 +6,7 @@ class Solution:
         x = abs(x)
         while x!=0:
             pop = x%10
-            x//=10
+            x = x//10
             if rev>(intmax-pop)//10:
                 return 0
             rev = rev*10+pop
