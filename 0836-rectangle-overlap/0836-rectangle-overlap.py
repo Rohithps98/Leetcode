@@ -4,6 +4,6 @@ class Solution:
         x21,y21,x22,y22 = rec2
         if x12<=x21 or x22<=x11:
             return False
-        if y21>=y12 or y22<=y11:
+        if y12<=y21 or y22<=y11:
             return False
         return True
