@@ -7,7 +7,6 @@ class NumArray:
 
     def sumRange(self, left: int, right: int) -> int:
         return self.prefixsum[right+1]-self.prefixsum[left]
-        
 
 
 # Your NumArray object will be instantiated and called as such:
