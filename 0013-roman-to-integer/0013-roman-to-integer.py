@@ -8,3 +8,4 @@ class Solution:
             else:
                 total+=roman[s[i]]
         return total
+    
