@@ -26,7 +26,6 @@ class Trie:
                 if child.eow:
                     stack.append((child,path+char))
         return longest
-                
 class Solution:
     def longestWord(self, words: List[str]) -> str:
         trie = Trie()
