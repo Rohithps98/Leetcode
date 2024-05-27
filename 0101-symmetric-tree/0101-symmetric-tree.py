@@ -8,12 +8,12 @@ class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
         if not root:
             return True
-        return self.isSame(root.left,root.right)
-    def isSame(self,leftroot,rightroot):
-        if leftroot==None and rightroot==None:
+        return self.issame(root.left,root.right)
+    def issame(self,leftroot,rightroot):
+        if leftroot==None and rightroot == None:
             return True
-        if leftroot==None or rightroot==None:
+        if leftroot==None or rightroot == None:
             return False
         if leftroot.val!=rightroot.val:
             return False
-        return self.isSame(leftroot.right,rightroot.left) and self.isSame(leftroot.left,rightroot.right)
+        return self.issame(leftroot.right,rightroot.left) and self.issame(leftroot.left,rightroot.right)
