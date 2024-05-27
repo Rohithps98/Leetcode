@@ -9,11 +9,11 @@ class Solution:
         if not root:
             return True
         return self.issame(root.left,root.right)
-    def issame(self,leftroot,rightroot):
-        if leftroot==None and rightroot == None:
+    def issame(self,left,right):
+        if left==None and right==None:
             return True
-        if leftroot==None or rightroot == None:
+        if left==None or right==None:
             return False
-        if leftroot.val!=rightroot.val:
+        if left.val!=right.val:
             return False
-        return self.issame(leftroot.right,rightroot.left) and self.issame(leftroot.left,rightroot.right)
+        return self.issame(left.right,right.left) and self.issame(left.left,right.right)
