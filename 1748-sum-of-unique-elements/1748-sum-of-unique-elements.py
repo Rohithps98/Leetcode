@@ -1,11 +1,7 @@
+from collections import Counter
 class Solution:
     def sumOfUnique(self, nums: List[int]) -> int:
-        a = {}
-        for i in nums:
-            if i in a:
-                a[i]+=1
-            else:
-                a[i]=1
+        a = Counter(nums)
         c = 0
         for i,j in a.items():
             if j==1:
