@@ -3,7 +3,7 @@ class Solution:
         if numRows<=0:
             return []
         dp = [[1]*(i+1) for i in range(numRows)]
-        for row in range(2,numRows):
-            for col in range(1,row):
-                dp[row][col] = dp[row-1][col-1]+dp[row-1][col]
+        for r in range(2,numRows):
+            for c in range(1,r):
+                dp[r][c] = dp[r-1][c-1]+dp[r-1][c]
         return dp
