@@ -3,8 +3,6 @@ class Solution:
         ms = nums[0]
         cs = 0
         for i in nums:
-            if cs<0:
-                cs = 0
-            cs+=i
-            ms = max(ms,cs)
+            cs = max(i,cs+i)
+            ms = max(cs,ms)
         return ms
