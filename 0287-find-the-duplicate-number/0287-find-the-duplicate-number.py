@@ -4,7 +4,7 @@ class Solution:
         while True:
             slow = nums[slow]
             fast = nums[nums[fast]]
-            if slow == fast:
+            if slow==fast:
                 break
         while True:
             slow = nums[slow]
