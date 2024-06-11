@@ -3,10 +3,6 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        # for i in range(m,m+n):
-        #     nums1[i] = nums2[i-m]
-        # nums1.sort()
-
         last = (m+n)-1
         while m>0 and n>0:
             if nums1[m-1]>nums2[n-1]:
