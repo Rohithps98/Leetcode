@@ -1,17 +1,10 @@
 class Solution:
     def isHappy(self, n: int) -> bool:
-        visit = set()
-        while n and n not in visit:
-            visit.add(n)
-            n = self.ssq(n)
-            if n==1:
-                return True
-        return False
-    def ssq(self,n):
-        res = 0
-        while n:
-            d = n%10
-            d = d**2
-            res+=d
-            n//=10
-        return res
+        def nex(n):
+            return sum(int(x)**2 for x in str(n))
+        slow = n
+        fast = nex(n)
+        while fast!=1 and slow!=fast:
+            slow=nex(slow)
+            fast = nex(nex(fast))
+        return fast==1
