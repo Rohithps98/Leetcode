@@ -12,11 +12,11 @@ class Solution:
         if not top<=bot:
             return False
         while l<=r:
-            mid = (l+r)//2
-            if matrix[bet][mid]==target:
+            m = (l+r)//2
+            if matrix[bet][m]==target:
                 return True
-            elif matrix[bet][mid]<target:
-                l = mid+1
+            elif matrix[bet][m]<target:
+                l=m+1
             else:
-                r = mid-1
+                r = m-1
         return False
