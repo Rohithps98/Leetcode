@@ -2,19 +2,19 @@ class Solution:
     def containsNearbyAlmostDuplicate(self, nums: List[int], indexDiff: int, valueDiff: int) -> bool:
         if indexDiff<1 or valueDiff<0:
             return False
-        bucket = {}
+        bucket={}
         width = valueDiff+1
-        def get_bucketid(num):
+        def get_bid(num):
             return num//width
         for i,num in enumerate(nums):
-            bucket_id = get_bucketid(num)
-            if bucket_id in bucket:
+            bid = get_bid(num)
+            if bid in bucket:
                 return True
-            if bucket_id-1 in bucket and abs(num-bucket[bucket_id-1])<width:
+            if bid-1 in bucket and abs(num-bucket[bid-1])<width:
                 return True
-            if bucket_id+1 in bucket and abs(num-bucket[bucket_id+1])<width:
+            if bid+1 in bucket and abs(num-bucket[bid+1])<width:
                 return True
-            bucket[bucket_id] = num
+            bucket[bid]=num
             if i>=indexDiff:
-                del bucket[get_bucketid(nums[i-indexDiff])]
+                del bucket[get_bid(nums[i-indexDiff])]
         return False
