@@ -1,41 +1,33 @@
+class Node:
+    def __init__(self,val):
+        self.val = val
+        self.parent = self
+        self.size = 1
+class UnionFind:
+    def find(self,node):
+        if node!=node.parent:
+            node.parent = self.find(node.parent)
+        return node.parent
+    def union(self,node1,node2):
+        p1 = self.find(node1)
+        p2 = self.find(node2)
+        if p1!=p2:
+            p2.parent = p1
+            p1.size+=p2.size
+        return p1.size
 class Solution:
-    def find(self,par,res):
-        if par[res]!=res:
-            par[res] = self.find(par,par[res])
-        return par[res]
-    def union(self,par,rank,size,x,y):
-        res1 = self.find(par,x)
-        res2 = self.find(par,y)
-        if res1!=res2:
-            if rank[res1]>rank[res2]:
-                par[res2] = res1
-                size[res1]+=size[res2]
-            elif rank[res2]<rank[res1]:
-                par[res1]=res2
-                size[res2]+=size[res1]
-            else:
-                par[res2] = res1
-                rank[res1]+=1
-                size[res1]+=size[res2]
     def longestConsecutive(self, nums: List[int]) -> int:
-        par,rank,size={},{},{}
-        for i in nums:
-            par[i]=i
-            rank[i]=0
-            size[i]=1
-        for i in nums:
-            if i+1 in par:
-                self.union(par,rank,size,i,i+1)
+        uf = UnionFind()
+        nodes = {}
         ms = 0
-        for i in nums:
-            ms = max(ms,size[self.find(par,i)])
+        for num in nums:
+            if num not in nodes:
+                node = Node(num)
+                nodes[num] = node
+                size = 1
+                if num+1 in nodes:
+                    size = uf.union(node,nodes[num+1])
+                if num-1 in nodes:
+                    size = uf.union(node,nodes[num-1])
+                ms = max(ms,size)
         return ms
-        # n = set(nums)
-        # lo = 0
-        # for i in nums:
-        #     if i-1 not in n:
-        #         l = 0
-        #         while i+l in n:
-        #             l+=1
-        #         lo = max(lo,l)
-        # return lo
