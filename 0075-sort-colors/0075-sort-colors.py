@@ -12,5 +12,5 @@ class Solution:
             elif nums[m]==1:
                 m+=1
             else:
-                nums[h],nums[m] = nums[m],nums[h]
+                nums[m],nums[h] = nums[h],nums[m]
                 h-=1
