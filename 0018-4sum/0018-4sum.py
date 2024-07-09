@@ -12,7 +12,7 @@ class Solution:
                 left,right = j+1,n-1
                 while left<right:
                     total = nums[i]+nums[j]+nums[left]+nums[right]
-                    if total == target:
+                    if total==target:
                         res.append([nums[i],nums[j],nums[left],nums[right]])
                         while left<right and nums[left]==nums[left+1]:
                             left+=1
