@@ -1,11 +1,11 @@
 class Solution:
-    def maxScore(self, cardpoints: List[int], k: int) -> int:
-        n = len(cardpoints)
+    def maxScore(self, cardPoints: List[int], k: int) -> int:
+        n = len(cardPoints)
         windowsize = n-k
-        currentsum = sum(cardpoints[:windowsize])
+        currentsum = sum(cardPoints[:windowsize])
         minsum = currentsum
         for i in range(windowsize,n):
-            currentsum+=cardpoints[i]-cardpoints[i-windowsize]
+            currentsum+=cardPoints[i]-cardPoints[i-windowsize]
             minsum = min(minsum,currentsum)
-        totalsum = sum(cardpoints)
+        totalsum = sum(cardPoints)
         return totalsum-minsum
