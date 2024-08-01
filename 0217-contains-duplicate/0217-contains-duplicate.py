@@ -1,9 +1,9 @@
-from collections import Counter
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        a = Counter(nums)
-        for i,j in a.items():
-            if j>1:
+        a = {}
+        for i in nums:
+            a[i] = 1+a.get(i,0)
+            if a[i]>1:
                 return True
         return False
         # a = set()
