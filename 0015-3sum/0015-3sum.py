@@ -6,6 +6,7 @@ class Solution:
             if i>0 and nums[i-1]==a:
                 continue
             l,r = i+1,len(nums)-1
+            # print(i,a,l)
             while l<r:
                 su = a+nums[l]+nums[r]
                 if su<0:
