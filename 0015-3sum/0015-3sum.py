@@ -8,10 +8,10 @@ class Solution:
             l,r = i+1,len(nums)-1
             while l<r:
                 su = a+nums[l]+nums[r]
-                if su<0:
-                    l+=1
-                elif su>0:
+                if su>0:
                     r-=1
+                elif su<0:
+                    l+=1
                 else:
                     res.append([a,nums[l],nums[r]])
                     l+=1
