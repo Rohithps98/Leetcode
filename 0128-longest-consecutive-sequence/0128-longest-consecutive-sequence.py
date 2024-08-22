@@ -2,7 +2,7 @@ class Node:
     def __init__(self,val):
         self.val = val
         self.parent = self
-        self.size = 1
+        self.size =1
 class UnionFind:
     def find(self,node):
         if node!=node.parent:
@@ -26,8 +26,8 @@ class Solution:
                 nodes[num] = node
                 size = 1
                 if num+1 in nodes:
-                    size = uf.union(node,nodes[num+1])
+                    size=uf.union(nodes[num+1],node)
                 if num-1 in nodes:
-                    size = uf.union(node,nodes[num-1])
-                ms = max(ms,size)
-        return ms
+                    size=uf.union(nodes[num-1],node)
+                ms = max(size,ms)
+        return ms   
