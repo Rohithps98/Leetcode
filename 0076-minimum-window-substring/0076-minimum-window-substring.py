@@ -1,6 +1,6 @@
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
-        if t == '':
+        if t=='':
             return ''
         countt,window = {},{}
         for i in t:
@@ -10,7 +10,7 @@ class Solution:
         for r in range(len(s)):
             c = s[r]
             window[c] = 1+window.get(c,0)
-            if c in countt and countt[c]==window[c]:
+            if c in countt and countt[c] == window[c]:
                 have+=1
             while have==need:
                 if resl>r-l+1:
@@ -21,4 +21,4 @@ class Solution:
                     have-=1
                 l+=1
         l,r = res
-        return s[l:r+1] if resl!=float('inf') else ""
+        return s[l:r+1] if resl!=float('inf') else ''
