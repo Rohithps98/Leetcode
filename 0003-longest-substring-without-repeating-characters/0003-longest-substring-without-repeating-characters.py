@@ -1,7 +1,7 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         a = set()
-        res,l = 0,0
+        l,res = 0,0
         for i in range(len(s)):
             while s[i] in a:
                 a.remove(s[l])
