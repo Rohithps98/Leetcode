@@ -2,8 +2,8 @@ class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
         if len(s1)>len(s2):
             return False
+        matches,l = 0,0
         s1c,s2c = [0]*26,[0]*26
-        l,matches = 0,0
         for i in range(len(s1)):
             s1c[ord(s1[i])-ord('a')]+=1
             s2c[ord(s2[i])-ord('a')]+=1
@@ -16,13 +16,13 @@ class Solution:
             s2c[index]+=1
             if s1c[index]==s2c[index]:
                 matches+=1
-            if s1c[index]+1==s2c[index]:
+            if s1c[index]+1 == s2c[index]:
                 matches-=1
             index = ord(s2[l])-ord('a')
             s2c[index]-=1
-            if s1c[index]==s2c[index]:
+            if s1c[index] == s2c[index]:
                 matches+=1
             if s1c[index]-1==s2c[index]:
                 matches-=1
             l+=1
-        return matches==26
+        return matches==26    
