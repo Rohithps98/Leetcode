@@ -3,12 +3,12 @@ class Solution:
         a = {}
         b = {}
         s = s.split(" ")
-        if len(pattern)!=len(s):
+        if len(s)!=len(pattern):
             return False
         for i in range(len(s)):
             m,n = s[i],pattern[i]
             if (m in a and a[m]!=n) or (n in b and b[n]!=m):
                 return False
             a[m]=n
-            b[n] = m
+            b[n]=m
         return True
