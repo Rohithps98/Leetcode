@@ -9,7 +9,7 @@ class Solution:
         k = 0
         for i in range(n):
             if i>=m-1 and sequence[i-m+1:i+1]==word:
-                dp[i] = dp[i-m]+1 if i>=m else 1
+                dp[i]=dp[i-m]+1 if i>=m else 1
             else:
                 dp[i] = 0
             k = max(k,dp[i])
