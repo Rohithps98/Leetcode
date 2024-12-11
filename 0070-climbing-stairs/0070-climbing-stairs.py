@@ -1,8 +1,11 @@
 class Solution:
     def climbStairs(self, n: int) -> int:
-        if n<=2:
+        one = 2
+        two = 1
+        if n==1 or n==2:
             return n
-        a,b = 1,2
         for i in range(3,n+1):
-            a,b = b,a+b
-        return b
+            cur = one+two
+            two = one
+            one = cur
+        return one
