@@ -4,13 +4,28 @@ class Solution:
         l = len(p)
         res = []
         cp = Counter(p)
-        sp = Counter(s[:l])
+        cs = Counter(s[:l])
         for i in range(len(s)-l+1):
-            if sp == cp:
+            if cp==cs:
                 res.append(i)
             if i+l<len(s):
-                sp[s[i]]-=1
-                if sp[s[i]]==0:
-                    del sp[s[i]]
-                sp[s[i+l]]+=1
+                cs[s[i]]-=1
+                if cs[s[i]]==0:
+                    del cs[s[i]]
+                cs[s[i+l]]+=1
         return res
+
+# class Solution:
+#     def findAnagrams(self, s: str, p: str) -> List[int]:
+#         l = len(p)
+#         p = sorted(p)
+#         res = []
+#         i = 0
+#         while i<len(s):
+#             if i+l<=len(s):
+#                 if s==p:
+#                     res.append(i)
+#                 elif sorted(s[i:i+l])==p:
+#                     res.append(i)
+#             i+=1
+#         return res
