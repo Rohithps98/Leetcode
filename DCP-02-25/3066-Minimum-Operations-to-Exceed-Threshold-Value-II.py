@@ -11,3 +11,12 @@ class Solution:
             heapq.heappush(nums,x*2+y)
             count+=1
         return count
+        # nums.sort(reverse = True)
+        # count = 0
+        # while min(nums)<k:
+        #     x = nums.pop()
+        #     y = nums.pop()
+        #     nums.append(x*2+y)
+        #     nums.sort(reverse = True)
+        #     count+=1
+        # return count
