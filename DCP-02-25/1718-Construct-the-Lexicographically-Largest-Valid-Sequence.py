@@ -14,11 +14,11 @@ class Solution:
                 if i==1:
                     if pos>=len:
                         return False
-                    res[pos]=1
+                    res[pos] = 1
                     used.add(1)
                     if backtrack(pos+1):
                         return True
-                    res[pos] = 0
+                    res[pos]=0
                     used.remove(1)
                 else:
                     if pos+i>=len or res[pos+i]!=0:
@@ -28,8 +28,7 @@ class Solution:
                     used.add(i)
                     if backtrack(pos+1):
                         return True
-                    res[pos] = 0
-                    res[pos+i] = 0
+                    res[pos] = res[pos+i] = 0
                     used.remove(i)
             return False
         backtrack(0)
