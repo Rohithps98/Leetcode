@@ -6,6 +6,6 @@ class Solution:
             if nums[i]>nums[i-1]:
                 cursum += nums[i]
             else:
-                maxsum = max(cursum,maxsum)
+                maxsum = max(maxsum,cursum)
                 cursum = nums[i]
         return max(maxsum,cursum)
